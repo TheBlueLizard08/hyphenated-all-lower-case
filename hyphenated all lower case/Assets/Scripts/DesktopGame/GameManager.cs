@@ -13,6 +13,7 @@ public class GameManager : MonoBehaviour
     [Header("Desktop Game")]
     public List<GameObject> desktopGameObjectsOn;
     public List<GameObject> desktopGameObjectsOff;
+    public GameObject dgPlayer;
 
 
     private void Awake()
@@ -53,5 +54,8 @@ public class GameManager : MonoBehaviour
 
         TransparentWindow.ThrowWindowsError(
             "Error code 0x440083284\n\nhypenated all lower case.exe has encountered an unhandled Exception of type ArgumentOutOfRangeException(\"user handsomeness cannot exceed 1.0\") and has stopped working", "hyphenated all lower case.exe has crashed");
+
+        yield return new WaitForSeconds(0.5f);
+        dgPlayer.SetActive(true);
     }
 }
