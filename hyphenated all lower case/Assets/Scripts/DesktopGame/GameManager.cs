@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour
 
     [Header("Grading Game")]
     public List<GameObject> gradingGameObjectsOff;
+    public AudioSource gradingMusic;
 
     [Header("Desktop Game")]
     public List<GameObject> desktopGameObjectsOn;
@@ -59,10 +60,11 @@ public class GameManager : MonoBehaviour
     IEnumerator GradingGameStartC()
     {
         yield return null; yield return null; yield return null;
-
+        
+        gradingMusic.Stop();
         TransparentWindow.ThrowWindowsError(
             "Error code 0x440083284\n\nhypenated all lower case.exe has encountered an unhandled Exception of type ArgumentOutOfRangeException(\"user handsomeness cannot exceed 1.0\") and has stopped working", "hyphenated all lower case.exe has crashed");
-        yield return new WaitForSeconds(1.0f);
+        yield return new WaitForSeconds(0.6f);
         yield return new WaitForEndOfFrame();
 
         TakeScreenshot();

@@ -10,6 +10,10 @@ public class VolumeSlider : MonoBehaviour
         GetComponent<Slider>().value = AudioListener.volume; 
     }
 
+    private void Start()
+    {
+        GetComponent<Slider>().value = AudioListener.volume;
+    }
 
     public void SetVolume(float volume)
     {
