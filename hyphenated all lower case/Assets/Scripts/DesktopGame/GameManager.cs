@@ -1,6 +1,8 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 public class GameManager : MonoBehaviour
 {
@@ -14,6 +16,12 @@ public class GameManager : MonoBehaviour
     public List<GameObject> desktopGameObjectsOn;
     public List<GameObject> desktopGameObjectsOff;
     public GameObject dgPlayer;
+
+    [Header("Museum Game")]
+    public List<GameObject> museumGameObjectsOn;
+    public List<GameObject> museumGameObjectsOff;
+    //public RenderTexture desktopRT;
+    public Renderer desktopPlane;
 
 
     private void Awake()
@@ -54,8 +62,37 @@ public class GameManager : MonoBehaviour
 
         TransparentWindow.ThrowWindowsError(
             "Error code 0x440083284\n\nhypenated all lower case.exe has encountered an unhandled Exception of type ArgumentOutOfRangeException(\"user handsomeness cannot exceed 1.0\") and has stopped working", "hyphenated all lower case.exe has crashed");
+        yield return new WaitForSeconds(1.0f);
+        yield return new WaitForEndOfFrame();
 
-        yield return new WaitForSeconds(0.5f);
-        dgPlayer.SetActive(true);
+        TakeScreenshot();
+        yield return null;
+
+        SwitchToMuseumGame();
+
+        //yield return new WaitForSeconds(0.5f);
+        //dgPlayer.SetActive(true);
+    }
+
+    void SwitchToMuseumGame()
+    {
+        foreach (GameObject o in desktopGameObjectsOff)
+        {
+            o.SetActive(false);
+        }
+
+        foreach (GameObject o in museumGameObjectsOn)
+        {
+            o.SetActive(true);
+        }
+    }
+
+    void TakeScreenshot()
+    {
+        var tex = DesktopScreenshot.Capture(new RectInt(0, 0, Screen.width, Screen.height));
+        desktopPlane.material.mainTexture = tex;
+        //ScreenCapture.CaptureScreenshot("TEST_SCREENIE.png");
+    
+        //ScreenCapture.CaptureScreenshotIntoRenderTexture(desktopRT);        
     }
 }
