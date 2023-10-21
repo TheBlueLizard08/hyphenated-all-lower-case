@@ -23,6 +23,7 @@ public class GameManager : MonoBehaviour
     public List<GameObject> museumGameObjectsOff;
     //public RenderTexture desktopRT;
     public Renderer desktopPlane;
+    public GameObject securityCameraUI;
 
 
     private void Awake()
@@ -105,5 +106,10 @@ public class GameManager : MonoBehaviour
         //ScreenCapture.CaptureScreenshot("TEST_SCREENIE.png");
     
         //ScreenCapture.CaptureScreenshotIntoRenderTexture(desktopRT);        
+    }
+
+    public void SetCameraUI(bool _active)
+    {
+        securityCameraUI.SetActive(_active);
     }
 }

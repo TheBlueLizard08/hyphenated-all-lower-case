@@ -14,6 +14,7 @@ public class SecurityCamera : MonoBehaviour
     public float pointDelay;
     [Tooltip("The way the camera picks a next point from the list")]
     public CameraMovementType movementType;
+    public Camera myCamera;
 
     Transform currentLookPoint;
     int currentIndex = 0;
@@ -57,5 +58,17 @@ public class SecurityCamera : MonoBehaviour
                 return Utility.Pick(lookPoints);
             default: throw new System.ArgumentException("Camera movement type not defined");
         }
+    }
+
+    public void PlayerInSight()
+    {
+        myCamera.gameObject.SetActive(true);
+        GameManager.Instance.SetCameraUI(true);
+    }
+
+    public void PlayerOutOfSight()
+    {
+        myCamera.gameObject.SetActive(false);
+        GameManager.Instance.SetCameraUI(false);
     }
 }
