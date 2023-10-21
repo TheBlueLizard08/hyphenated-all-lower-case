@@ -72,6 +72,15 @@ public class GameManager : MonoBehaviour
 
         SwitchToMuseumGame();
 
+        while (!Input.GetKey(KeyCode.W) && !Input.GetKey(KeyCode.A) && !Input.GetKey(KeyCode.S) && !Input.GetKey(KeyCode.D))
+        {
+            yield return null;
+        }
+
+        yield return new WaitForSeconds(60.0f); //Wait 60 seconds, then give the objective.
+
+        //ToDo: Show Objective/Dialogue
+
         //yield return new WaitForSeconds(0.5f);
         //dgPlayer.SetActive(true);
     }
