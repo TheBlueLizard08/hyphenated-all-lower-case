@@ -54,4 +54,11 @@ public class PlayerMovement : MonoBehaviour
 
         rb.velocity = new Vector3(vel.x * moveSpeed, rb.velocity.y, vel.z * moveSpeed);
     }
+
+    private void OnDisable()
+    {
+        if (!rb) { return; }
+        rb.velocity = Vector3.zero;
+        rb.angularVelocity = Vector3.zero;
+    }
 }

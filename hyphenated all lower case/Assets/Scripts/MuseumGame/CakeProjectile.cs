@@ -14,7 +14,7 @@ public class CakeProjectile : MonoBehaviour
 		rb = GetComponent<Rigidbody>();
 
 		float throwAngle = Vector3.Distance(transform.position, target.position) * throwAngleMod;
-		throwAngle = Mathf.Clamp(throwAngle, 0, 45);
+		throwAngle = Mathf.Clamp(throwAngle, 0, 35);
 		rb.velocity = CalcBallisticVelocityVector(transform.position, target.position, throwAngle);
 		StartCoroutine(LifeTimerC());
     }

@@ -95,7 +95,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a692246f6573054fa55a3046a546ad1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  throwAngleMod: 10
+  throwAngleMod: 2.5
   lifeTime: 4
 --- !u!1 &4822308254347071658
 GameObject:

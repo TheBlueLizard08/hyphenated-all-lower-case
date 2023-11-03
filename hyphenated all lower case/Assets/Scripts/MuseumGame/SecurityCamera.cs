@@ -23,7 +23,7 @@ public class SecurityCamera : MonoBehaviour
     void Start()
     {
         //bodyPivot.LookAt(lookPoints[0].position, Vector3.up);
-        bodyPivot.rotation = Quaternion.LookRotation(lookPoints[0].position - bodyPivot.position, Vector3.up);
+        bodyPivot.rotation = Quaternion.LookRotation(lookPoints[0].position - bodyPivot.position/*, Vector3.up*/);
         StartCoroutine(MovementC());
     }
 
@@ -35,7 +35,7 @@ public class SecurityCamera : MonoBehaviour
             
             currentLookPoint = PickNewPoint();
 
-            Quaternion targetRotation = Quaternion.LookRotation(currentLookPoint.position - bodyPivot.position, Vector3.up);
+            Quaternion targetRotation = Quaternion.LookRotation(currentLookPoint.position - bodyPivot.position/*, Vector3.up*/);
 
             while (Quaternion.Angle(bodyPivot.rotation, targetRotation) > 0.5f)
             {
@@ -53,7 +53,6 @@ public class SecurityCamera : MonoBehaviour
                 currentIndex++;
                 currentIndex%=lookPoints.Length;
                 return lookPoints[currentIndex];
-                break;
             case CameraMovementType.Random:
                 return Utility.Pick(lookPoints);
             default: throw new System.ArgumentException("Camera movement type not defined");

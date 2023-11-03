@@ -56,7 +56,7 @@ public class MuseumDialogue : MonoBehaviour
             dialogueAudioSource.Stop();
 
             dialogueTextUI.text = dialogueText0[i];
-            speakerNameUI.text = speakerNames0[i];
+            speakerNameUI.text = speakerNames0[i] + ":";
             button0Text.text = replies0[i];
 
             dialogueAudioSource.clip = clips0[i];
@@ -70,7 +70,7 @@ public class MuseumDialogue : MonoBehaviour
         dialogueAudioSource.Stop();
 
         dialogueTextUI.text = choiceDialogue;
-        speakerNameUI.text = choiceSpeaker;
+        speakerNameUI.text = choiceSpeaker + ":";
         button0Text.text = choiceAnswer0;
         button1Text.text = choiceAnswer1;
         button1.gameObject.SetActive(true);
@@ -94,7 +94,7 @@ public class MuseumDialogue : MonoBehaviour
             dialogueAudioSource.Stop();
 
             dialogueTextUI.text = dialogueText1[i];
-            speakerNameUI.text = speakerNames1[i];
+            speakerNameUI.text = speakerNames1[i] + ":";
             button0Text.text = replies1[i];
 
             dialogueAudioSource.clip = clips1[i];

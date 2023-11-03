@@ -7,7 +7,7 @@ public class TriggerEvent : MonoBehaviour
 {
     public List<string> tags = new List<string>{ "Player" };
     public UnityEvent onEnter, onExit;
-    //public UnityEvent onStay; //Uncomment for onStay behavior
+    public UnityEvent onStay; //Uncomment for onStay behavior
 
     private void OnTriggerEnter(Collider other)
     {
@@ -30,7 +30,7 @@ public class TriggerEvent : MonoBehaviour
     }
 
     //Uncomment for onStay behavior
-    /*
+
     private void OnTriggerStay(Collider other)
     {
         if (tags.Contains(other.tag)) { onStay.Invoke(); }
@@ -40,5 +40,5 @@ public class TriggerEvent : MonoBehaviour
     {
         if (tags.Contains(collision.tag)) { onStay.Invoke(); }
     }
-    */
+
 }

@@ -17,7 +17,7 @@ TagManager:
   - PlayerTrigger
   - Player
   - PostProcessing
-  - Interactible
+  - TrafficLightCameraOnly
   - 
   - 
   - 
