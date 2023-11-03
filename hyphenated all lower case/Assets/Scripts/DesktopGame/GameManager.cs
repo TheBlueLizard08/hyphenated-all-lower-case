@@ -21,6 +21,7 @@ public class GameManager : MonoBehaviour
     [Header("Museum Game")]
     public List<GameObject> museumGameObjectsOn;
     public List<GameObject> museumGameObjectsOff;
+    [HideInInspector] public List<CakeSpawn> cakeSpawns;
     //public RenderTexture desktopRT;
     public Renderer desktopPlane;
     public GameObject securityCameraUI;
@@ -30,6 +31,7 @@ public class GameManager : MonoBehaviour
     {
         if(Instance != null) { Destroy(Instance); }
         Instance = this;        
+        cakeSpawns = new List<CakeSpawn>();
     }
 
     // Start is called before the first frame update
@@ -78,12 +80,10 @@ public class GameManager : MonoBehaviour
             yield return null;
         }
 
-        yield return new WaitForSeconds(60.0f); //Wait 60 seconds, then give the objective.
+        yield return new WaitForSeconds(30.0f); //Wait 60 seconds, then give the objective.
 
-        //ToDo: Show Objective/Dialogue
-
-        //yield return new WaitForSeconds(0.5f);
-        //dgPlayer.SetActive(true);
+        //ToDo: Ensure that Player is in some kind of safe spot, or deactivate the cameras temporarily or something.
+        GetComponent<MuseumDialogue>().PlayDialogue();
     }
 
     void SwitchToMuseumGame()
@@ -96,6 +96,14 @@ public class GameManager : MonoBehaviour
         foreach (GameObject o in museumGameObjectsOn)
         {
             o.SetActive(true);
+        }
+    }
+
+    public void MuseumGameSpotted()
+    {
+        foreach(CakeSpawn cs in cakeSpawns)
+        {
+            cs.ArmCakeSpawns(true);
         }
     }
 

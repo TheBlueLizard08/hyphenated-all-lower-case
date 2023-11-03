@@ -62,6 +62,7 @@ public class SecurityCamera : MonoBehaviour
 
     public void PlayerInSight()
     {
+        GameManager.Instance.MuseumGameSpotted();
         myCamera.gameObject.SetActive(true);
         GameManager.Instance.SetCameraUI(true);
     }

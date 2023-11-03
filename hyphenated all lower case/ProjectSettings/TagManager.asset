@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - PlayerTrigger
+  - Death
   layers:
   - Default
   - TransparentFX
@@ -16,7 +17,7 @@ TagManager:
   - PlayerTrigger
   - Player
   - PostProcessing
-  - 
+  - Interactible
   - 
   - 
   - 
