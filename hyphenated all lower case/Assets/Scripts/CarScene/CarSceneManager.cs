@@ -5,6 +5,7 @@ using UnityEngine;
 public class CarSceneManager : MonoBehaviour
 {
     public AudioSource wipeAS, musicAS;
+    public EngineRevving engine;
 
     public void PlayWipeNoise()
     {
@@ -14,6 +15,7 @@ public class CarSceneManager : MonoBehaviour
     public void PlayMusic()
     {
         musicAS.Play();
+        engine.FadeInEngine();
     }
 
     public void SetMusicVolume(float val)
