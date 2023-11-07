@@ -11,7 +11,14 @@ public class PlayerMovement : MonoBehaviour
     public KeyCode left = KeyCode.A;
     public KeyCode right = KeyCode.D;
 
-    public float moveSpeed;
+    public KeyCode jump = KeyCode.Space;
+
+    public float moveSpeed, jumpForce;
+    public LayerMask groundCheckMask;
+
+    float distToGround;
+
+    bool grounded = false;
 
     Rigidbody rb;
 
@@ -23,11 +30,13 @@ public class PlayerMovement : MonoBehaviour
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
+        distToGround = (GetComponentInChildren<Collider>().bounds.extents.y) + 0.05f;
     }
 
     private void Update()
     {
         HandleInput();
+        HandleJump();
     }
 
     void HandleInput()
@@ -53,6 +62,25 @@ public class PlayerMovement : MonoBehaviour
 		vel = vel.normalized;
 
         rb.velocity = new Vector3(vel.x * moveSpeed, rb.velocity.y, vel.z * moveSpeed);
+    }
+
+    void HandleJump()
+    {
+        if(grounded && Input.GetKeyDown(jump))
+        {
+            rb.AddForce(jumpForce * Vector3.up, ForceMode.VelocityChange);
+            grounded = false;
+        }
+    }
+
+    private void FixedUpdate()
+    {
+        CheckGrounded();
+    }
+
+    void CheckGrounded()
+    {
+        grounded = Physics.Raycast(transform.position, -Vector3.up, distToGround, groundCheckMask);
     }
 
     private void OnDisable()
