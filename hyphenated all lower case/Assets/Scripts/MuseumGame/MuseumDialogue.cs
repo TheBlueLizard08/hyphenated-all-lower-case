@@ -33,6 +33,7 @@ public class MuseumDialogue : MonoBehaviour
     public List<AudioClip> clips1;
 
     int lastAnswered = -1;
+    bool dialogueTriggered = false;
 
     public void PlayDialogue()
     {
@@ -41,6 +42,9 @@ public class MuseumDialogue : MonoBehaviour
 
     IEnumerator PlayDialogueC()
     {
+        if (dialogueTriggered) { yield break; }
+        dialogueTriggered = true;
+
         //Initialize dialogue
         dialogueUIPanel.SetActive(true);
         button0.gameObject.SetActive(true);
