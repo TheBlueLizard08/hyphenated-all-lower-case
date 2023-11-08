@@ -43,7 +43,7 @@ public class MenuCreditsSlideshow : MonoBehaviour
 
             t = 1.0f;
 
-            //gelukkig ben ik twee pannenkoeken
+            //gelukkig ben ik twee pannenkoeken also hahahhahahaha code duplication, again ;_;
             while (t >= 0.0f)
             {
                 headerText.color = Color.Lerp(Color.clear, origHeaderColor, t);
