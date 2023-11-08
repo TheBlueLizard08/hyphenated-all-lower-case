@@ -2078,10 +2078,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 92a3619228c4ac34a8c3643a7e1cf0f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  idleVolume: 0.2
+  idleVolume: 0.3
   maxVolume: 1
   idlePitch: 0.8
-  maxPitch: 1.85
+  maxPitch: 1.95
   upSpeedMod: 1.25
   downSpeedMod: 0.5
 --- !u!1 &1227181783
