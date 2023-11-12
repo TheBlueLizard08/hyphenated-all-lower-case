@@ -41,7 +41,7 @@ public class MuseumPlayer : MonoBehaviour
         cake.Initialize(playerThrownCakeTarget);
 
         //Wait a moment
-        yield return new WaitForSeconds(3.0f);
+        yield return new WaitForSeconds(2.0f);
 
         //yeet cake back
         CakeProjectile cake2 = Instantiate(cakeProjectilePrefab, thrownBackCakeSpawn.position, Quaternion.identity).GetComponent<CakeProjectile>();
