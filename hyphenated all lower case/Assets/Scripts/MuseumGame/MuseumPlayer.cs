@@ -39,7 +39,7 @@ public class MuseumPlayer : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (transform.position.y < -2.0f) 
+        if (transform.position.y < -4.0f) 
         { 
             TeleportToSpawn();
             playerCollider.enabled = true;

@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Globalization;
 using TMPro;
 using UnityEngine;
 
@@ -15,6 +16,7 @@ public class TextReplacer : MonoBehaviour
         TextMeshProUGUI text = GetComponent<TextMeshProUGUI>();
         text.text = text.text
             .Replace("[PLAYERNAME]", GameManager.Instance.playerName)
-            .Replace("[CURRENTYEAR]", DateTime.Now.Year.ToString());
+            .Replace("[CURRENTYEAR]", DateTime.Now.Year.ToString())
+            .Replace("[CURRENTDATE]", DateTime.Now.ToString(DateTimeFormatInfo.CurrentInfo.ShortDatePattern));
     }
 }
