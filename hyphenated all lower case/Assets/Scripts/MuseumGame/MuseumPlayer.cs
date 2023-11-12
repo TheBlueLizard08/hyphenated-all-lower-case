@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.SceneManagement;
 
 public class MuseumPlayer : MonoBehaviour
@@ -13,19 +14,35 @@ public class MuseumPlayer : MonoBehaviour
     public AudioSource cakeSplatAS;
     public RectTransform cakeSplat;
     public int carSceneIndex = 2;
+    public Collider playerCollider;
 
     bool canThrowCake = false;
     bool cakeIsThrown = false;
     bool hasDied = false;
+    Vector3 startPos;
+
+    private void Start()
+    {
+        startPos = transform.position;
+    }
 
     private void Update()
     {
         throwCakeUIPanel.gameObject.SetActive(canThrowCake && !cakeIsThrown);
 
-        if(Input.GetMouseButtonDown(0) && canThrowCake && !cakeIsThrown)
+        if (Input.GetMouseButtonDown(0) && canThrowCake && !cakeIsThrown)
         {
             Debug.Log("YEET!");
             StartCoroutine(ThrowCakeC());
+        }
+    }
+
+    private void FixedUpdate()
+    {
+        if (transform.position.y < -2.0f) 
+        { 
+            TeleportToSpawn();
+            playerCollider.enabled = true;
         }
     }
 
@@ -109,5 +126,10 @@ public class MuseumPlayer : MonoBehaviour
     public void DisableCakeThrow()
     {
         canThrowCake = false;
+    }
+
+    public void TeleportToSpawn()
+    {
+        transform.position = startPos + (3.0f * Vector3.up);
     }
 }
