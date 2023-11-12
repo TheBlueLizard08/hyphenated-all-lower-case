@@ -620,6 +620,7 @@ MonoBehaviour:
   - Music used in this project
   - Music used in this project
   - Art assets used in this project
+  - Art assets used in this project
   credits:
   - Alex Buurman
   - Mana Kouwenberg
@@ -641,10 +642,12 @@ MonoBehaviour:
 
     Licensed
     under CC BY 4.0: https://filmmusic.io/standard-license'
-  - '"Cake" (https://skfb.ly/6UXSN) by Citrus is licensed under Creative Commons
-    Attribution
-
-    (http://creativecommons.org/licenses/by/4.0/).'
+  - "\"Cake\" (https://skfb.ly/6UXSN) by Citrus is licensed under\n Creative Commons
+    Attribution (http://creativecommons.org/licenses/by/4.0/).\n\n\"Old vent\" (https://skfb.ly/6S8wn)
+    by SusanKing is licensed under\r\n Creative Commons Attribution (http://creativecommons.org/licenses/by/4.0/)."
+  - "Caution sign: Photo by Christian Lendl on Unsplash\n \r\n\u201CWindow Blinds\u201D
+    Photo by Good Textures on goodtextures.com,\r\n https://www.goodtextures.com/image/18318/window-blinds-textures-18318
+    \r\n\r\n\u201C60 Diffuse Textures\u201D by Luis Guilherme Bento on itch.io, \r\nhttps://epicmcdude.itch.io/60-photo-textures"
   headerText: {fileID: 605799805}
   creditsText: {fileID: 1810741760}
 --- !u!1 &538719645
