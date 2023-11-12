@@ -13,6 +13,7 @@ public class MuseumDialogue : MonoBehaviour
     public Button button0, button1;
     public PlayerMovement museumPlayer;
     public MouseLook[] museumMouseLooks;
+    public GameObject playerHeldStuff;
 
     [Header("Dialogue stuff")][TextArea]
     public List<string> dialogueText0;
@@ -117,6 +118,7 @@ public class MuseumDialogue : MonoBehaviour
         museumPlayer.enabled = true;
         foreach (MouseLook m in museumMouseLooks) { m.enabled = true; }
         Cursor.lockState = CursorLockMode.Locked;
+        playerHeldStuff.SetActive(true);
     }
 
     public void PressAnswer(int answerIndex)
