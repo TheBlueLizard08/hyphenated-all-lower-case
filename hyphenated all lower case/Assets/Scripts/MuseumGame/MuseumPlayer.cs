@@ -65,6 +65,10 @@ public class MuseumPlayer : MonoBehaviour
         cake2.Initialize(Camera.main.transform);
 
         //scene switch happens automatically because of death
+        //In case it doesnt (WHICH CAN HAPPEN AND LIKE WHYYYYYY)
+
+        yield return new WaitForSeconds(4.0f);
+        StartCoroutine(HitByCakeC());
     }
 
     void DisablePlayer()
